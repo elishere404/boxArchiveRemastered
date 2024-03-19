@@ -8,11 +8,6 @@
         "use": "@vercel/node",
      
       },
-      {
-        "src": "ui/build/**",
-        "use": "@vercel/static",
-
-      }
     ],
     "routes": [
       {
