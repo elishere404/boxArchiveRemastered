@@ -1,0 +1,51 @@
+<!-- views/file.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= file %></title>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 20px;">
+
+    <h1 style="text-align: center;"><%= file %></h1>
+
+    <div style="max-width: 600px; margin: 0 auto;">
+        <% if (isMedia(file)) { %>
+            <video controls autoplay loop muted style="width: 100%; max-height: 300px;">
+                <source src="/uploads/<%= file %>" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        <% } else if (isImage(file)) { %>
+            <img src="/uploads/<%= file %>" alt="<%= file %>" style="max-width: 100%; max-height: 300px;">
+        <% } else if (isAudio(file)) { %>
+            <audio controls>
+                <source src="/uploads/<%= file %>" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        <% } else { %>
+            <p>File Name: <%= file %></p>
+            <p>Download Link: <a href="/uploads/<%= file %>" style="text-decoration: none; color: #007bff;">Download <%= file %></a></p>
+        <% } %>
+    </div>
+
+    <% function isMedia(file) { %>
+        <% const mediaExtensions = ['.mp4', '.webm', '.ogg']; %>
+        <% const ext = path.extname(file).toLowerCase(); %>
+        <% return mediaExtensions.includes(ext); %>
+    <% } %>
+
+    <% function isImage(file) { %>
+        <% const imageExtensions = ['.png', '.jpg', '.jpeg', '.gif']; %>
+        <% const ext = path.extname(file).toLowerCase(); %>
+        <% return imageExtensions.includes(ext); %>
+    <% } %>
+
+    <% function isAudio(file) { %>
+        <% const audioExtensions = ['.mp3', '.wav', '.ogg']; %>
+        <% const ext = path.extname(file).toLowerCase(); %>
+        <% return audioExtensions.includes(ext); %>
+    <% } %>
+
+</body>
+</html>
