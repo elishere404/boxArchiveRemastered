@@ -1,0 +1,21 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoxArchive</title>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 20px;">
+
+    <h1 style="text-align: center;">BoxArchive - upload everything</h1>
+
+    <div style="max-width: 400px; margin: 0 auto;">
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" style="margin-bottom: 10px; width: 100%;" />
+            <button type="submit" style="background-color: #007bff; color: #fff; border: none; padding: 10px 20px; cursor: pointer; width: 100%; border-radius: 5px;">Upload</button>
+        </form>
+    </div>
+<a href="https://github.com/elishere404">github</a>
+</body>
+</html>
